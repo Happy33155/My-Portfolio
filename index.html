@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Birthstone&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav id="navbar">
+      <div class="logo">My Portfolio</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+      </ul>
+      <button id="menu-toggle" class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+    </nav>
+
+    <!-- Hero Banner -->
+    <header id="home">
+      <div class="hero-content">
+        <h1>
+          Hello, I'm <span id="name-highlight">Ogbue Toochukwu Gerald</span>
+        </h1>
+        <p>Mobile App Developer | Tech Enthusiast</p>
+        <a href="#cv" class="btn">View CV</a>
+      </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="container">
+      <h2>About Me</h2>
+      <p>
+        Hi, I'm Gerald, a frontend web developer based in Lagos, Nigeria. I
+        build responsive websites with React, JavaScript, HTML, and CSS, and I
+        enjoy turning ideas into interfaces people actually like using. What
+        sets me apart is that I think about security from the start. Alongside
+        web development, I've trained in cybersecurity, from scanning for
+        vulnerabilities to analyzing phishing attacks, so I look at every login
+        page and form as something to build well and protect well. Right now I'm
+        learning backend development to become a full-stack developer, and I'm
+        working toward a career in application security.!
+      </p>
+    </section>
+     
+    <!-- CV Section -->
+<section id="cv" class="container bg-light">
+    <h2>
+        <button id="cv-toggle" class="cv-toggle" aria-expanded="false">
+            Curriculum Vitae <span class="arrow">▼</span>
+        </button>
+    </h2>
+    <p class="section-intro">A quick look at my education, experience, and skills. (Click the title to open)</p>
+
+    <div id="cv-content" class="cv-content">
+
+    <div class="card-grid">
+
+        <!-- Education -->
+        <div class="card">
+            <h3>Education</h3>
+            <p class="card-title">B.Sc. Accounting</p>
+            <p class="card-meta">Chukwuemeka Odumegwu Ojukwu University</p>
+            <span class="card-date">2020 - 2024</span>
+        </div>
+
+        <!-- Experience -->
+        <div class="card">
+            <h3>Experience</h3>
+            <p class="card-title">Frontend Web Developer</p>
+            <p class="card-meta">Tech Studios (Full-Stack Development Track)</p>
+            <span class="card-date">2025 - Present</span>
+        </div>
+
+        <!-- Cybersecurity -->
+        <div class="card">
+            <h3>Cybersecurity</h3>
+            <p class="card-title">Hands-on Security Projects</p>
+            <p class="card-meta">Tech Studios | 2025 - 2026</p>
+            <ul class="card-list">
+                <li>Vulnerability assessment of Metasploitable2 with Nmap and Nessus</li>
+                <li>Network segmentation home lab (VLANs, 802.1Q trunking)</li>
+                <li>Phishing analysis with Wireshark and Hex Editor</li>
+                <li>Incident response and data-breach simulation</li>
+            </ul>
+        </div>
+
+        <!-- Certifications -->
+        <div class="card">
+            <h3>Certifications</h3>
+            <p class="card-title">Cybersecurity Fundamentals</p>
+            <p class="card-meta">Tech Studios Academy</p>
+            <span class="card-date">2025</span>
+            <p class="card-title">JavaScript Full-Stack Web Development</p>
+            <p class="card-meta">Tech Studios Academy</p>
+            <span class="card-date">2026</span>
+        </div>
+
+        <!-- Web Development Skills -->
+        <div class="card">
+            <h3>Web Development Skills</h3>
+            <div class="skill-tags">
+                <span>HTML5</span>
+                <span>CSS3</span>
+                <span>JavaScript</span>
+                <span>React</span>
+                <span>Responsive Design</span>
+                <span>Debugging</span>
+            </div>
+        </div>
+
+        <!-- Cybersecurity Skills -->
+        <div class="card">
+            <h3>Cybersecurity Skills</h3>
+            <div class="skill-tags">
+                <span>Nmap</span>
+                <span>Nessus</span>
+                <span>Wireshark</span>
+                <span>Kali Linux</span>
+                <span>Vulnerability Assessment</span>
+                <span>Network Analysis</span>
+                <span>Incident Response</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div>
+    <a href="OGBUETOCHUKWUGERALDCV-1.pdf" download="Gerald_Ogbue_CV.pdf" class="cv-btn">Download Full CV</a>
+    </div>
+</section>
+
+<!-- Portfolio Section -->
+<section id="portfolio" class="container">
+    <h2>Portfolio</h2>
+    <div class="card-grid">
+
+        <!-- Project 1: Connectify -->
+        <div class="card project-card">
+            <h3>Connectify Website</h3>
+            <p class="project-text">
+                Designed and built the landing page for Connectify and suggested
+                security improvements for the login and sign-up process.
+            </p>
+            <div class="skill-tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>React</span>
+            </div>
+            <a href="https://connecti-web.onrender.com/profile"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="project-btn">View Project</a>
+        </div>
+
+        <!-- Project 2: Weather -->
+        <div class="card project-card">
+            <h3>Weather Dashboard</h3>
+            <p class="project-text">
+                A responsive weather app that shows live weather details for any city.
+            </p>
+            <div class="skill-tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>React</span>
+            </div>
+            <!-- Replace the # with your weather app link when you host it -->
+            <a href="https://login-and-signup-with-react.vercel.app/" class="project-btn">View Project</a>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- Gallery Section -->
+<section id="gallery" class="container bg-light">
+    <h2>Gallery</h2>
+    <p>A glimpse into my journey & friends</p>
+
+    <div class="gallery-flex">
+
+        <div class="card gallery-card">
+            <div class="gallery-photo">
+                <img src="gallery1.jpeg" alt="Portrait in an orange patterned shirt" class="pos-1" loading="lazy">
+            </div>
+            <h3>Portrait</h3>
+            <p class="card-title">Casual day out</p>
+            <p class="card-meta">Relaxed and in my element</p>
+            <span class="card-date">2026</span>
+        </div>
+
+        <div class="card gallery-card">
+            <div class="gallery-photo">
+                <img src="gallery2.jpeg" alt="With friends" class="pos-2" loading="lazy">
+            </div>
+            <h3>Friends</h3>
+            <p class="card-title">Good times with the guys</p>
+            <p class="card-meta">Great people make great memories</p>
+            <span class="card-date">2026</span>
+        </div>
+
+        <div class="card gallery-card">
+            <div class="gallery-photo">
+                <img src="gallery3.jpeg" alt="Standing in a grey outfit" class="pos-3" loading="lazy">
+            </div>
+            <h3>Style</h3>
+            <p class="card-title">Dressed for the day</p>
+            <p class="card-meta">Simple, clean and confident</p>
+            <span class="card-date">2026</span>
+        </div>
+
+        <div class="card gallery-card">
+            <div class="gallery-photo">
+                <img src="gallery4.jpeg" alt="Grey outfit by the cars" class="pos-4" loading="lazy">
+            </div>
+            <h3>Out and About</h3>
+            <p class="card-title">Moments worth keeping</p>
+            <p class="card-meta">Catching the little moments</p>
+            <span class="card-date">2026</span>
+        </div>
+
+        <div class="card gallery-card">
+            <div class="gallery-photo">
+                <img src="gallery5.jpeg" alt="Posing in a grey outfit" class="pos-5" loading="lazy">
+            </div>
+            <h3>Event Day</h3>
+            <p class="card-title">Smart and ready</p>
+            <p class="card-meta">Always ready for the occasion</p>
+            <span class="card-date">2026</span>
+        </div>
+
+    </div>
+</section>
+   
+<!-- Lightbox: the dark screen that shows the big picture -->
+<div id="lightbox" class="lightbox">
+    <span id="lightbox-close" class="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="">
+</div>
+    <script src="script.js"></script>
+  </body>
+</html>

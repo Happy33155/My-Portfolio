@@ -1,0 +1,582 @@
+/* =========================================================
+   1. RESET: remove the browser's default spacing
+   ========================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;   /* padding and border stay inside the width */
+}
+
+/* When a link jumps to a section, leave space for the fixed navbar
+   so the section title is not hidden behind it */
+html {
+    scroll-padding-top: 80px;
+}
+
+/* =========================================================
+   2. BODY: page background and font
+   ========================================================= */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #2b2b2b, #6e6e6e);  /* grey gradient */
+    background-attachment: fixed;   /* background stays still when scrolling */
+    margin: 0;
+}
+
+/* =========================================================
+   3. NAVBAR (desktop)
+   ========================================================= */
+#navbar {
+    display: flex;                    /* logo, links and button in one row */
+    align-items: center;              /* centre them vertically */
+    justify-content: space-between;   /* logo left, links right */
+    width: 100%;
+    padding: 20px 100px;
+    z-index: 1000;                    /* stays above other content */
+    position: fixed;                  /* navbar stays at the top when scrolling */
+    background-color: rgba(71, 38, 1, 0.724);
+}
+
+/* Logo text */
+.logo {
+    font-family: "Birthstone", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 40px;
+    color: rgba(123, 65, 3, 0.521);
+}
+
+/* The list of links (About, CV, Portfolio, Gallery) */
+.nav-links {
+    display: flex;               /* links side by side */
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;                 /* space between links */
+}
+
+/* Remove the bullet dots */
+.nav-links li {
+    list-style: none;
+}
+
+/* Remove the underline from links */
+li a {
+    text-decoration: none;
+}
+
+/* Links take the colour of their parent */
+.nav-links a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* =========================================================
+   4. HAMBURGER BUTTON (hidden on big screens)
+   ========================================================= */
+.menu-toggle {
+    display: none;               /* hidden on desktop; shown on phones below */
+    background: none;            /* remove the default grey button look */
+    border: none;
+    cursor: pointer;
+    flex-direction: column;      /* stack the 3 lines vertically */
+    gap: 5px;                    /* space between the lines */
+    padding: 4px;
+}
+
+/* Each line of the hamburger */
+.menu-toggle span {
+    display: block;
+    width: 26px;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;   /* smooth change to X */
+}
+
+/* When JS adds "open", the 3 lines turn into an X */
+.menu-toggle.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);    /* top line tilts down */
+}
+.menu-toggle.open span:nth-child(2) {
+    opacity: 0;                                  /* middle line disappears */
+}
+.menu-toggle.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);  /* bottom line tilts up */
+}
+
+/* =========================================================
+   5. HERO HEADER (the big banner at the top)
+   ========================================================= */
+header {
+    height: 60vh;                /* 60% of the screen height */
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: #fff;
+    display: flex;
+    justify-content: center;     /* centre the text sideways */
+    align-items: center;         /* centre the text up and down */
+    text-align: center;
+    padding: 0 20px;
+}
+
+/* Your name in blue */
+#name-highlight {
+    color: #38bdf8;
+}
+
+/* Hero heading */
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    padding-top: 20px;
+}
+
+/* "View CV" button */
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 22px;
+    background: #38bdf8;
+    color: #0f172a;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+/* =========================================================
+   6. SECTIONS (About, CV, Portfolio, Gallery)
+   ========================================================= */
+.container {
+    padding: 50px 5%;
+    max-width: 1200px;           /* never wider than this */
+    margin: auto;                /* centre on the page */
+    text-align: center;
+}
+
+/* Section titles */
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #0f172a;
+}
+
+/* Paragraphs inside sections */
+.container p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #0f172a;
+    margin-bottom: 30px;
+}
+
+/* =========================================================
+   7. CARDS (CV and Portfolio boxes)
+   ========================================================= */
+
+/* Holds all the cards */
+.card-grid,
+.gallery-grid {
+    display: flex;               /* cards side by side */
+    flex-wrap: wrap;             /* extra cards go to the next line */
+    gap: 20px;                   /* space between cards */
+    margin-top: 25px;
+}
+
+/* The white box */
+.card {
+    flex: 1 1 260px;             /* start at 260px wide, can stretch to fill the row */
+    box-sizing: border-box;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    border-top: 4px solid #4f46e5;   /* coloured line on top */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    text-align: left;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;   /* smooth hover */
+}
+
+/* Card lifts a little when the mouse is on it */
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 20px -6px rgba(0, 0, 0, 0.15);
+}
+
+/* Card heading (Education, Experience, ...) */
+.card h3 {
+    font-size: 0.85rem;
+    text-transform: uppercase;   /* capital letters */
+    letter-spacing: 1px;
+    color: #4f46e5;
+    margin-bottom: 12px;
+}
+
+/* Main line (e.g. B.Sc. Accounting) */
+.card-title {
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin: 12px 0 2px;
+    color: #0f172a;
+}
+
+/* The first title needs no space on top */
+.card-title:first-of-type {
+    margin-top: 0;
+}
+
+/* Smaller line (e.g. the university name) */
+.card-meta {
+    color: #475569;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* Date badge (e.g. 2025 - Present) */
+.card-date {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background: #eef2ff;
+    color: #4338ca;
+    padding: 2px 10px;
+    border-radius: 20px;         /* pill shape */
+}
+
+/* Skill tags row */
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;             /* tags drop to the next line when space finishes */
+    gap: 8px;
+}
+
+/* Each skill tag */
+.skill-tags span {
+    background: #eef2ff;
+    border: 1px solid #c7d2fe;
+    color: #3730a3;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Project list (Cybersecurity card) */
+.card-list {
+    list-style: none;            /* remove bullet dots */
+    margin: 12px 0 0;
+    padding-left: 0;
+    font-size: 0.92rem;
+    color: #1e293b;
+}
+
+/* Each project line with a coloured bar instead of a bullet */
+.card-list li {
+    margin-bottom: 8px;
+    padding: 6px 10px;
+    background: #f5f3ff;
+    border-left: 3px solid #4f46e5;
+    border-radius: 4px;
+}
+
+/* =========================================================
+   8. DOWNLOAD CV BUTTON
+   ========================================================= */
+.cv-btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 28px;
+    background: #4f46e5;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.25s ease;
+}
+
+/* Darker colour on hover */
+.cv-btn:hover {
+    background: #3730a3;
+}
+
+/* =========================================================
+   9. CV OPEN / CLOSE (works with the JavaScript)
+   ========================================================= */
+
+/* The "Curriculum Vitae" heading button */
+.cv-toggle {
+    background: none;            /* remove the default grey button look */
+    border: none;
+    font: inherit;               /* copy the h2 font */
+    color: inherit;
+    cursor: pointer;             /* hand cursor */
+}
+
+/* The little arrow beside the title */
+.arrow {
+    display: inline-block;
+    font-size: 0.7em;
+    transition: transform 0.3s ease;   /* smooth flip */
+}
+
+/* Arrow flips when JS adds "open" */
+.cv-toggle.open .arrow {
+    transform: rotate(180deg);
+}
+
+/* CV cards are hidden by default */
+.cv-content {
+    display: none;
+}
+
+/* JS adds "open" and the cards show */
+.cv-content.open {
+    display: block;
+}
+
+/* =========================================================
+   10. PORTFOLIO PROJECT CARDS
+   ========================================================= */
+.project-card {
+    display: flex;               /* inside of the card becomes flex */
+    flex-direction: column;      /* stack items top to bottom */
+}
+
+/* Project description text */
+.project-text {
+    color: #475569;
+    line-height: 1.6;
+    margin: 0 0 14px;
+}
+
+/* "View Project" button */
+.project-btn {
+    margin-top: auto;            /* push button to the bottom so all buttons line up */
+    align-self: flex-start;      /* keep its own size, sit on the left */
+    padding: 10px 22px;
+    background: #4f46e5;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    transition: background 0.25s ease;
+}
+
+/* Space between tags and button */
+.project-card .skill-tags {
+    margin-bottom: 18px;
+}
+
+/* Darker colour on hover */
+.project-btn:hover {
+    background: #3730a3;
+}
+
+/* =========================================================
+   11. GALLERY (Flexbox, matches the CV cards)
+   ========================================================= */
+
+/* Holds all gallery cards */
+.gallery-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;     /* last row stays centred */
+    gap: 24px;
+    margin-top: 30px;
+}
+
+/* One gallery card (also has the .card style) */
+.gallery-card {
+    flex: 0 1 calc(33.333% - 24px);   /* 3 per row on desktop */
+    display: flex;
+    flex-direction: column;           /* stack photo, title, text */
+    align-items: flex-start;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Lift with an indigo glow on hover */
+.gallery-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 24px rgba(79, 70, 229, 0.18);
+}
+
+/* The box that holds the photo */
+.gallery-photo {
+    width: 100%;
+    height: 320px;
+    overflow: hidden;            /* hide anything that goes outside (zoom effect) */
+    border-radius: 8px;
+    margin-bottom: 14px;
+    border: 1px solid #c7d2fe;
+}
+
+/* The photo itself */
+.gallery-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;           /* fill the box without stretching */
+    display: block;
+    cursor: zoom-in;             /* magnifier cursor: click to enlarge */
+    transition: transform 0.4s ease;
+}
+
+/* Photo zooms a little on hover */
+.gallery-card:hover .gallery-photo img {
+    transform: scale(1.05);
+}
+
+/* Gallery card label spacing */
+.gallery-card h3 {
+    margin-bottom: 6px;
+}
+
+/* Keep faces in the frame for each photo */
+.pos-1 { object-position: center 25%; }
+.pos-2 { object-position: center 30%; }
+.pos-3 { object-position: center 55%; }
+.pos-4 { object-position: center 40%; }
+.pos-5 { object-position: center 50%; }
+
+/* =========================================================
+   12. LIGHTBOX (big picture when a photo is clicked)
+   ========================================================= */
+.lightbox {
+    display: none;               /* hidden by default */
+    position: fixed;             /* covers the whole screen */
+    inset: 0;                    /* top, right, bottom, left = 0 */
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 2000;               /* above the navbar (1000) */
+    justify-content: center;     /* centre the picture sideways */
+    align-items: center;         /* centre the picture up and down */
+    padding: 20px;
+}
+
+/* JS adds "open" and it appears */
+.lightbox.open {
+    display: flex;
+}
+
+/* The big picture */
+.lightbox img {
+    max-width: 100%;
+    max-height: 90vh;            /* never taller than the screen */
+    object-fit: contain;         /* show the WHOLE picture, no cropping */
+    border-radius: 8px;
+}
+
+/* The X close button */
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* =========================================================
+   13. TABLET (screens 900px wide or smaller)
+   ========================================================= */
+@media (max-width: 900px) {
+
+    /* 2 gallery cards per row */
+    .gallery-card {
+        flex: 0 1 calc(50% - 24px);
+    }
+
+    /* Slightly shorter photos */
+    .gallery-photo {
+        height: 280px;
+    }
+}
+
+/* =========================================================
+   14. PHONE (screens 600px wide or smaller)
+   ========================================================= */
+@media (max-width: 600px) {
+
+    /* ----- Navbar ----- */
+    #navbar {
+        padding: 15px 20px;      /* smaller side space so it fits a phone */
+    }
+
+    .logo {
+        font-size: 32px;         /* smaller logo */
+    }
+
+    /* Show the hamburger button on phones */
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* Links become a dropdown menu, hidden until the button is tapped */
+    .nav-links {
+        display: none;
+        position: absolute;      /* sits under the navbar */
+        top: 100%;               /* starts right at the bottom of the navbar */
+        left: 0;
+        width: 100%;
+        flex-direction: column;  /* links stack top to bottom */
+        gap: 0;
+        background: rgba(71, 38, 1, 0.97);
+    }
+
+    /* JS adds "open" and the menu shows */
+    .nav-links.open {
+        display: flex;
+    }
+
+    /* Each link row takes the full width */
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Whole row is tappable */
+    .nav-links a {
+        display: block;
+        padding: 16px;
+        color: #fff;
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    /* ----- Hero and text ----- */
+    header {
+        height: 50vh;            /* shorter banner */
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;       /* smaller heading so the name fits */
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    .section-intro {
+        color: #64748b;
+        margin-top: 8px;
+    }
+
+    /* ----- Cards ----- */
+    .card {
+        flex: 1 1 100%;          /* one card per row */
+        padding: 16px;
+    }
+
+    .cv-btn {
+        display: block;          /* full-width download button */
+        text-align: center;
+    }
+
+    /* ----- Gallery ----- */
+    .gallery-flex {
+        gap: 16px;
+    }
+
+    .gallery-card {
+        flex: 1 1 100%;          /* one gallery card per row */
+    }
+
+    .gallery-photo {
+        height: 360px;           /* taller photos for portrait pictures */
+    }
+}
